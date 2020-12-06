@@ -12,7 +12,7 @@ with open(csvpath) as csvfile:
     total = 0
     for row in csvreader:
         total += float(row[1])
-    print("Total: {}".format(total))
+    print("Total: ${:,.2f}".format(total))
 
 
 
