@@ -11,8 +11,8 @@ with open(csvpath) as csvfile:
     next(csvfile)
     total = 0
     for row in csvreader:
-        total += float(row[1])
-    print("Total: ${:,.2f}".format(total))
+        total += int(row[1])
+    print("Total: ${}".format(total))
 
 
 
