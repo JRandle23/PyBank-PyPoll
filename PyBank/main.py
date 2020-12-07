@@ -8,10 +8,14 @@ csvpath = 'PyBank/Resources/budget_data.csv'
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
 
-    next(csvfile)
-    total = 0
+
     for row in csvreader:
-        total += int(row[1])
+        total_months = sum(1 for row in csvfile)
+    print("Total Months: {}".format(total_months))
+
+    
+    for row in csvreader:
+        total = sum(1 for row in csvfile )
     print("Total: ${}".format(total))
 
 
