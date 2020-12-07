@@ -11,6 +11,7 @@ profits = []
 change = []
 
 
+
 with open(csvpath) as csvfile:
     csvreader = csv.reader(csvfile, delimiter=",")
     
@@ -18,22 +19,52 @@ with open(csvpath) as csvfile:
 
     for row in csvreader:
 
+        profits.append(int(row[1]))
         date.append(row[0])
-        profits.append(row[1])
     
     for total_months in date:
+        
         print("Total Months: ", len(date))
 
         break
-    
-    def sum_of_list(numbers):
-        total = 0
-        for val in numbers:
-            total = total + val
-        return total 
-    
-    print("Total: ", sum_of_list(profits))
+        
+    for total in profits:
+        total = sum(profits)
+        print("Total: ${}".format(total))
 
+        break
+    
+    for x in range(len(profits)):
+        changes = profits[x] - profits[x-1]
+        change.append(int(changes))
+        average = sum(change)/85
+        print("Average Change: ${}".format(round(average, 2)))
+
+        break
+    
+    for y in range(len(change)):
+        difference = 0
+        for z in range(y + 1, len(change)):
+            difference = change[z] - change[y]
+        
+
+    
+
+
+
+    
+
+        
+    
+
+    
+
+        
+
+    
+        
+    
+    
 
 
    
