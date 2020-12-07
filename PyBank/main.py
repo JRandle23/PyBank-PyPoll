@@ -23,17 +23,16 @@ with open(csvpath) as csvfile:
     
     for total_months in date:
         print("Total Months: ", len(date))
-        
-        break
-
-    total = 0
-
-    for numbers in range(0, len(profits)):
-        total = total + profits[numbers]
-        print("Total: ", total)
 
         break
-        
+    
+    def sum_of_list(numbers):
+        total = 0
+        for val in numbers:
+            total = total + val
+        return total 
+    
+    print("Total: ", sum_of_list(profits))
 
 
 
