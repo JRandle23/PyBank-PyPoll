@@ -41,20 +41,35 @@ with open(csvpath) as csvfile:
 
         break
 
-    #calculate the average of the changes of the entire period 
+    #calculate the changes in PL of the changes of the entire period 
     for x in range(len(PLlist) - 1):
         difference = PLlist[x+1] - PLlist[x]
 
-        change.append(int(difference)) 
+        #add changes calculate to the change list 
+        change.append(int(difference))
+        date.append(row[0]) 
 
+    #calculate the average of the changes
     average = float(sum(change)/85)
     print("Average Change: ${}".format(round(average, 2)))
-       
+
+    #find the greatest increases in profits   
     maximum = max(change)
-    print("Greatest Increase in Profits: ", maximum)
-    
+    index = change.index(1926159)
+    for i, (b,a) in enumerate(zip(date, change)):
+        index_1 = index + 1
+        maxvaluedate = date[index_1]
+    formatted_maximum = "${:}".format(maximum)
+
+    #find the greatest decrease in profits 
     minimum = min(change)
-    print("Greatest Decrease in Profits: ", minimum)
+    index_m = change.index(-2196167)
+    for j, (c,d) in enumerate(zip(date, change)):
+        index_2 = index_m + 1
+        minvaluedate = date[index_1]
+    formatted_minimum = "${:}".format(minimum)
+    print("Greatest Increase in Profits: ", maxvaluedate, formatted_maximum)
+    print("Greatest Decrease in Profits: ", minvaluedate, formatted_minimum)
        
 
         
