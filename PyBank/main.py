@@ -58,6 +58,7 @@ with open(csvpath) as csvfile:
     index = change.index(1926159)
     for i, (b,a) in enumerate(zip(date, change)):
         index_1 = index + 1
+
         maxvaluedate = date[index_1]
     formatted_maximum = "${:}".format(maximum)
 
@@ -66,7 +67,7 @@ with open(csvpath) as csvfile:
     index_m = change.index(-2196167)
     for j, (c,d) in enumerate(zip(date, change)):
         index_2 = index_m + 1
-        minvaluedate = date[index_1]
+        minvaluedate = date[index_2]
     formatted_minimum = "${:}".format(minimum)
     print("Greatest Increase in Profits: ", maxvaluedate, formatted_maximum)
     print("Greatest Decrease in Profits: ", minvaluedate, formatted_minimum)
