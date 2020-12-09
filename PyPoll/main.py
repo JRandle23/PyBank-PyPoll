@@ -29,8 +29,10 @@ with open(csvpath) as csvfile:
     
     from collections import Counter
     counted_names = Counter(candidates)
-    split_counter = counted_names.items()
-    print(split_counter)
+    split_counter = counted_names.keys()
+    for i in split_counter:
+        print(i,":")
+    
     
     
 
