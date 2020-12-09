@@ -1,10 +1,8 @@
 
 # import modules 
-import sys
+
 import os
 import csv
-
- 
 
 print("Financial Analysis")
 print("...............................")
@@ -17,11 +15,7 @@ date = []
 PLlist = []
 change = []
 
-total_months = []
-total = []
-average = []
-greatest_increase = []
-greatest_decrease = []
+
 
 
 #read the csvfile 
@@ -43,14 +37,12 @@ with open(csvpath) as csvfile:
         
         print("Total Months: ", totalmonths)
        
-
         break
     
     #calculates the net total of the PL column
     for total_pl in PLlist:
         total_pl = sum(PLlist)
         print("Total: ${}".format(total_pl))
-
       
         break
 
@@ -88,8 +80,24 @@ with open(csvpath) as csvfile:
         minvaluedate = date[index_2]
     formatted_minimum = "${:}".format(minimum)
     
-    print("Greatest Increase in Profits: ", maxvaluedate, formatted_maximum)
+    print("Greatest Increase in Profits: ", maxvaluedate, formatted_maximum) 
     print("Greatest Decrease in Profits: ", minvaluedate, formatted_minimum)
+
+
+    output = (f"Financial Analysis\n"
+    f"----------------------------\n"
+    f"Total Months: {totalmonths}\n"
+    f"Total: ${total_pl}\n"
+    f"Average Change: ${avg:.2f}\n"
+    f"Greatest Increase in Profits: {maxvaluedate} ({formatted_maximum})\n"
+    f"Greatest Decrease in Profits: {minvaluedate} ({formatted_minimum})\n")
+    
+    
+    output_file = os.path.join("PyBank/Analysis/output_text.txt")
+
+    with open(output_file, 'w') as txtfile:
+        txtfile.write(output)
+   
 
  
 
