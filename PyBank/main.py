@@ -1,9 +1,13 @@
-print("Financial Analysis")
-print("...............................")
 
 # import modules 
+import sys
 import os
 import csv
+
+ 
+
+print("Financial Analysis")
+print("...............................")
 
 #Create the file path for the csv
 csvpath = 'PyBank/Resources/budget_data.csv'
@@ -12,6 +16,12 @@ csvpath = 'PyBank/Resources/budget_data.csv'
 date = []
 PLlist = []
 change = []
+
+total_months = []
+total = []
+average = []
+greatest_increase = []
+greatest_decrease = []
 
 
 #read the csvfile 
@@ -28,17 +38,20 @@ with open(csvpath) as csvfile:
         date.append(row[0])
     
     #calculates the total months included 
-    for total_months in date:
+    for totalmonths in date:
+        totalmonths = len(date)
         
-        print("Total Months: ",len(date))
+        print("Total Months: ", totalmonths)
+       
 
         break
     
     #calculates the net total of the PL column
-    for total in PLlist:
-        total = sum(PLlist)
-        print("Total: ${}".format(total))
+    for total_pl in PLlist:
+        total_pl = sum(PLlist)
+        print("Total: ${}".format(total_pl))
 
+      
         break
 
     #calculate the changes in PL of the changes of the entire period 
@@ -50,12 +63,15 @@ with open(csvpath) as csvfile:
         date.append(row[0]) 
 
     #calculate the average of the changes
-    average = float(sum(change)/85)
-    print("Average Change: ${}".format(round(average, 2)))
+    avg = float(sum(change)/85)
+    print("Average Change: ${}".format(round(avg, 2)))
+
 
     #find the greatest increases in profits   
     maximum = max(change)
     index = change.index(1926159)
+    
+    #zip the date and change lists to output corresponding date to maximum value
     for i, (b,a) in enumerate(zip(date, change)):
         index_1 = index + 1
 
@@ -65,13 +81,24 @@ with open(csvpath) as csvfile:
     #find the greatest decrease in profits 
     minimum = min(change)
     index_m = change.index(-2196167)
+    
+    #zip the date and change lists to output corresponding date to minimum value
     for j, (c,d) in enumerate(zip(date, change)):
         index_2 = index_m + 1
         minvaluedate = date[index_2]
     formatted_minimum = "${:}".format(minimum)
+    
     print("Greatest Increase in Profits: ", maxvaluedate, formatted_maximum)
     print("Greatest Decrease in Profits: ", minvaluedate, formatted_minimum)
-       
+
+ 
+
+
+
+
+
+
+
 
         
 
