@@ -28,8 +28,10 @@ with open(csvpath) as csvfile:
         break
     
     from collections import Counter
-    c = Counter(candidates)
-    print(c)
+    counted_names = Counter(candidates)
+    split_counter = counted_names.items()
+    print(split_counter)
+    
     
 
 
