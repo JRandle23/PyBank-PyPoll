@@ -32,15 +32,22 @@ with open(csvpath) as csvfile:
     
     percentages = {x: float(int(y)/len(candidates) * 100) for x, y in counted_names}
     
-    for r in percentages.items():
-        percentages = '{0:.2f}'.format
-
-
-    totals = dict(percentages)
-    for k, v in counted_names:
-        totals[k] = [totals[k], v] if k in totals else v 
     
-    print(totals)
+    res = dict()
+    for key in percentages:
+        res[key] = "{0}%".format(round(percentages[key], 3))
+
+    
+   
+    totals = dict(res)
+    for k, v in counted_names:
+        totals[k] = totals[k], v if k in totals else v 
+    
+    for key, value in totals.items():
+        print("{}: {}".format(key, value))
+
+    print("--------------------------")
+    
 
     
     
