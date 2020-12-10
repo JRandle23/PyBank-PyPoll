@@ -28,10 +28,30 @@ with open(csvpath) as csvfile:
         break
     
     from collections import Counter
-    counted_names = Counter(candidates)
-    split_counter = counted_names.items()
-    print(split_counter)
-        
+    counted_names = Counter(candidates).items()
+    
+    percentages = {x: float(int(y)/len(candidates) * 100) for x, y in counted_names}
+    
+    for r in percentages.items():
+        percentages = '{0:.2f}'.format
+
+
+    totals = dict(percentages)
+    for k, v in counted_names:
+        totals[k] = [totals[k], v] if k in totals else v 
+    
+    print(totals)
+
+    
+    
+    
+    
+ 
+   
+   
+    
+    
+    
     
     
     

@@ -84,6 +84,7 @@ with open(csvpath) as csvfile:
     print("Greatest Decrease in Profits: ", minvaluedate, formatted_minimum)
 
 
+    #creating output variable with print statement as f strings 
     output = (f"Financial Analysis\n"
     f"----------------------------\n"
     f"Total Months: {totalmonths}\n"
@@ -92,9 +93,10 @@ with open(csvpath) as csvfile:
     f"Greatest Increase in Profits: {maxvaluedate} ({formatted_maximum})\n"
     f"Greatest Decrease in Profits: {minvaluedate} ({formatted_minimum})\n")
     
-    
+    #setting the output path
     output_file = os.path.join("PyBank/Analysis/output_text.txt")
 
+    #writing the output to a text file 
     with open(output_file, 'w') as txtfile:
         txtfile.write(output)
    
