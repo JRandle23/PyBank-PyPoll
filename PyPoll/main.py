@@ -1,8 +1,10 @@
-print("Election Results")
-print("--------------------------")
 
 import os
 import csv
+
+print("Election Results")
+print("--------------------------")
+
 
 csvpath = 'PyPoll/Resources/election_data.csv'
 
@@ -37,20 +39,33 @@ with open(csvpath) as csvfile:
     for key in percentages:
         res[key] = "{0}%".format(round(percentages[key], 3))
 
-    
-   
     totals = dict(res)
     for k, v in counted_names:
-        totals[k] = totals[k], v if k in totals else v 
+        totals[k] = (totals[k], v if k in totals else v)
     
     for key, value in totals.items():
-        print("{}: {}".format(key, value))
+        formatted = ("{}: {}".format(key, value))
+        print(formatted)
 
     print("--------------------------")
-    
 
+    import operator 
+    winner = max(totals.items(), key=operator.itemgetter(1))[0]
+    print("Winner: ", winner)
     
-    
+    output = (f"Election Results\n"
+    f"--------------------------\n"
+    f"Total Votes: {totalvotes}\n"
+    f"--------------------------\n"
+    f"{formatted}\n"
+    f"--------------------------\n"
+    f"Winner: {winner}\n")
+
+    output_file = os.path.join('PyPoll/Analysis/output_text.txt')
+
+    with open(output_file, 'w') as txtfile:
+        txtfile.write(output)
+
     
     
  
