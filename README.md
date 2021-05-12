@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Python Challenge - Py Me Up, Charlie
 
 ## Background
